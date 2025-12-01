@@ -1,5 +1,4 @@
-/* style.css - Task Board Styles */
-/* Complete CSS - No need to modify */
+/* style.css - Task Board Styles (Christmas Edition 🎄) */
 
 /* ========================================
    RESET & BASE STYLES
@@ -13,10 +12,12 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* เปลี่ยนพื้นหลังเป็นไล่สี แดง-เขียว คริสต์มาส */
+    background: linear-gradient(135deg, #1a472a 0%, #c62828 100%);
     min-height: 100vh;
     padding: 20px;
     line-height: 1.6;
+    background-attachment: fixed; /* ให้พื้นหลังนิ่งเวลาเลื่อน */
 }
 
 .container {
@@ -29,23 +30,35 @@ body {
    ======================================== */
 
 header {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
     text-align: center;
+    border-top: 5px solid #c62828; /* หมวกซานต้า */
+    border-bottom: 5px solid #1a472a; /* ต้นคริสต์มาส */
 }
 
 header h1 {
-    color: #333;
+    color: #c62828; /* สีแดง */
     font-size: 2.5em;
     margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* เพิ่มไอคอนตกแต่งด้วย CSS */
+header h1::before {
+    content: "🎄 ";
+}
+header h1::after {
+    content: " 🎅";
 }
 
 .subtitle {
-    color: #666;
+    color: #555;
     font-size: 1.1em;
+    font-weight: 500;
 }
 
 /* ========================================
@@ -53,15 +66,16 @@ header h1 {
    ======================================== */
 
 .add-task-section {
-    background: white;
+    background: #ffffff;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
 }
 
 .add-task-section h2 {
-    color: #333;
+    color: #1a472a; /* สีเขียวเข้ม */
     margin-bottom: 20px;
     font-size: 1.5em;
 }
@@ -84,17 +98,18 @@ header h1 {
     width: 100%;
     padding: 12px;
     border: 2px solid #e0e0e0;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 14px;
     font-family: inherit;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #c62828; /* เน้นสีแดงเมื่อพิมพ์ */
+    box-shadow: 0 0 5px rgba(198, 40, 40, 0.2);
 }
 
 .form-group textarea {
@@ -103,64 +118,73 @@ header h1 {
 }
 
 /* ========================================
-   BUTTONS
+   BUTTONS (Ornament Style)
    ======================================== */
 
 .btn {
     padding: 12px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px; /* ปุ่มกลมมนเหมือนลูกบอลตกแต่ง */
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s;
     display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
+/* ปุ่มหลัก - สีแดงซานต้า */
 .btn-primary {
-    background: #667eea;
+    background: linear-gradient(to bottom, #d32f2f, #b71c1c);
     color: white;
+    border: 1px solid #b71c1c;
 }
 
 .btn-primary:hover {
-    background: #5568d3;
-    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(to bottom, #e53935, #c62828);
 }
 
+/* ปุ่มสำเร็จ - สีเขียวต้นสน */
 .btn-success {
-    background: #48bb78;
+    background: linear-gradient(to bottom, #2e7d32, #1b5e20);
     color: white;
 }
 
 .btn-success:hover {
-    background: #38a169;
+    background: linear-gradient(to bottom, #388e3c, #2e7d32);
 }
 
+/* ปุ่มลบ - สีเทาหิมะ/ถ่าน (เพื่อให้ไม่แย่งซีนสีแดงหลัก) */
 .btn-danger {
-    background: #f56565;
-    color: white;
+    background: #ffecb3;
+    color: #d84315;
 }
 
 .btn-danger:hover {
-    background: #e53e3e;
+    background: #ffe082;
 }
 
+/* ปุ่มเตือน - สีทองกระดิ่ง */
 .btn-warning {
-    background: #ed8936;
-    color: white;
+    background: linear-gradient(to bottom, #fbc02d, #f9a825);
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
 }
 
 .btn-warning:hover {
-    background: #dd6b20;
+    background: linear-gradient(to bottom, #fdd835, #fbc02d);
 }
 
 .btn-sm {
-    padding: 6px 12px;
+    padding: 6px 15px;
     font-size: 12px;
+    border-radius: 15px;
 }
 
 /* ========================================
@@ -168,17 +192,20 @@ header h1 {
    ======================================== */
 
 .tasks-section {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
 }
 
 .tasks-section h2 {
-    color: #333;
+    color: #1a472a;
     margin-bottom: 20px;
     font-size: 1.5em;
+    border-bottom: 2px dashed #c62828;
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
 /* ========================================
@@ -190,16 +217,19 @@ header h1 {
     display: flex;
     align-items: center;
     gap: 10px;
+    background: #f1f8e9;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .filter-section label {
     font-weight: 600;
-    color: #333;
+    color: #1a472a;
 }
 
 .filter-section select {
     padding: 8px 12px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid #a5d6a7;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
@@ -222,35 +252,42 @@ header h1 {
 }
 
 .task-column {
-    background: #f7fafc;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5); /* โปร่งใสเล็กน้อย */
+    border-radius: 12px;
     padding: 15px;
     min-height: 300px;
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .column-header {
-    padding: 12px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 10px;
     margin-bottom: 15px;
     text-align: center;
     font-size: 1.1em;
-    font-weight: 600;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Header สีคริสต์มาส */
 .todo-header {
-    background: #fed7d7;
-    color: #c53030;
+    background: #d32f2f; /* แดง */
+    border-bottom: 3px solid #b71c1c;
 }
+.todo-header::after { content: " 🎁"; }
 
 .progress-header {
-    background: #feebc8;
-    color: #c05621;
+    background: #f9a825; /* ทอง */
+    border-bottom: 3px solid #f57f17;
 }
+.progress-header::after { content: " ⭐"; }
 
 .done-header {
-    background: #c6f6d5;
-    color: #276749;
+    background: #2e7d32; /* เขียว */
+    border-bottom: 3px solid #1b5e20;
 }
+.done-header::after { content: " ✅"; }
 
 /* ========================================
    TASK CARDS
@@ -262,16 +299,17 @@ header h1 {
 
 .task-card {
     background: white;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 15px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid #ddd;
 }
 
 .task-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .task-header {
@@ -283,7 +321,7 @@ header h1 {
 }
 
 .task-title {
-    font-weight: 600;
+    font-weight: 700;
     color: #333;
     font-size: 1.05em;
     flex: 1;
@@ -291,32 +329,36 @@ header h1 {
 }
 
 .priority-badge {
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 12px;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     white-space: nowrap;
 }
 
+/* ป้าย Priority แบบคริสต์มาส */
 .priority-high {
-    background: #fed7d7;
-    color: #c53030;
+    background: #ffcdd2;
+    color: #b71c1c;
+    border: 1px solid #e57373;
 }
 
 .priority-medium {
-    background: #feebc8;
-    color: #c05621;
+    background: #fff9c4;
+    color: #f57f17;
+    border: 1px solid #fff176;
 }
 
 .priority-low {
-    background: #bee3f8;
-    color: #2c5282;
+    background: #c8e6c9;
+    color: #1b5e20;
+    border: 1px solid #81c784;
 }
 
 .task-description {
-    color: #666;
-    font-size: 0.9em;
+    color: #555;
+    font-size: 0.95em;
     margin-bottom: 12px;
     line-height: 1.5;
     word-break: break-word;
@@ -324,14 +366,17 @@ header h1 {
 
 .task-meta {
     font-size: 0.8em;
-    color: #999;
+    color: #888;
     margin-bottom: 12px;
+    font-style: italic;
 }
 
 .task-actions {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
 }
 
 /* ========================================
@@ -341,12 +386,15 @@ header h1 {
 .empty-state {
     text-align: center;
     padding: 40px 20px;
-    color: #999;
+    color: #1a472a;
+    background: rgba(255,255,255,0.4);
+    border-radius: 10px;
 }
 
 .empty-state p {
     margin-bottom: 10px;
     font-size: 0.95em;
+    font-weight: 500;
 }
 
 /* ========================================
@@ -356,19 +404,16 @@ header h1 {
 footer {
     background: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     color: #666;
     font-size: 0.9em;
-}
-
-footer p {
-    margin: 5px 0;
+    margin-top: 40px;
 }
 
 footer strong {
-    color: #667eea;
+    color: #c62828;
 }
 
 /* ========================================
@@ -381,7 +426,7 @@ footer strong {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.8);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -390,11 +435,11 @@ footer strong {
 }
 
 .spinner {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #667eea;
+    border: 5px solid #ffcdd2;
+    border-top: 5px solid #c62828; /* แดง */
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     animation: spin 1s linear infinite;
 }
 
@@ -404,73 +449,36 @@ footer strong {
 }
 
 .loading-overlay p {
-    color: white;
+    color: #c62828;
     margin-top: 15px;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (คงเดิม)
    ======================================== */
 
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
-
-    .add-task-section,
-    .tasks-section {
-        padding: 20px;
-    }
-
-    .task-columns {
-        gap: 15px;
-    }
-
-    .task-actions {
-        flex-direction: column;
-    }
-
-    .task-actions .btn {
-        width: 100%;
-    }
+    body { padding: 10px; }
+    header h1 { font-size: 2em; }
+    .add-task-section, .tasks-section { padding: 20px; }
+    .task-columns { gap: 15px; }
+    .task-actions { flex-direction: column; }
+    .task-actions .btn { width: 100%; }
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    .subtitle {
-        font-size: 0.9em;
-    }
-
-    .add-task-section h2,
-    .tasks-section h2 {
-        font-size: 1.2em;
-    }
+    header h1 { font-size: 1.5em; }
+    .subtitle { font-size: 0.9em; }
+    .add-task-section h2, .tasks-section h2 { font-size: 1.2em; }
 }
 
 /* ========================================
    UTILITY CLASSES
    ======================================== */
 
-.hidden {
-    display: none !important;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.mt-10 {
-    margin-top: 10px;
-}
-
-.mb-10 {
-    margin-bottom: 10px;
-}
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+.mt-10 { margin-top: 10px; }
+.mb-10 { margin-bottom: 10px; }
